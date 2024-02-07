@@ -1,0 +1,35 @@
+<div>
+	<header class="flex justify-center pl-5 h-16 bg-transparent md:bg-surface">
+		<div class="flex items-center">
+			<fa-icon class="text-white mr-6" transform="grow-25" [icon]="logo" />
+			<span class="text-base cursor-default font-bold text-white leading-none"
+				>WeatherCheck</span
+			>
+		</div>
+	</header>
+	<div
+		class="w-screen max-w-lg px-6 flex items-center flex-col mx-auto md:mt-20"
+	>
+		<div>
+			<app-dropdown (cityItemEvent)="getWeather($event)" />
+		</div>
+	</div>
+	<div class="w-80 mx-auto pl-10" *ngIf="!hasBookmarks(); else data">
+		<div class="index-tip">
+			<div class="index-tip__arrow">
+				<img width="36" height="24" src="/assets/TooltipArrow.svg" alt="arrow">
+			</div>
+			<p class="text-text text-center mt-3">
+				Начните вводить город, например, Ижевск
+			</p>
+		</div>
+	</div>
+	<ng-template #data>
+		<div class="bookmark-cards w-full max-w-screen-2xl mx-auto px-10">
+			<div class="mt-8 md:mt-14" *ngFor="let bookmark of weatherData">
+				<app-bookmark-card [weather]="bookmark" />
+			</div>
+		</div>
+	</ng-template>
+
+</div>

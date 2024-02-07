@@ -1,0 +1,31 @@
+input
+  border: none
+  background-image: none
+  background-color: transparent
+  -webkit-box-shadow: none
+  -moz-box-shadow: none
+  box-shadow: none
+  outline: none
+
+  height: 56px
+  padding-left: 16px
+
+.bookmark-cards
+  display: grid
+  grid-gap: 2rem
+  grid-template-columns: repeat(3, minmax(270px, 1fr))
+
+.index-tip
+  display: grid
+  width: 100%
+  max-width: 16rem
+  grid-template-columns: 36px auto 36px
+  margin-top: 1.5rem
+
+@media screen and (max-width: 1223px)
+  .bookmark-cards
+    grid-template-columns: repeat(auto-fill, minmax(270px, 1fr))
+
+@media screen and (max-width: 375px)
+  .index-bookmark-cards
+    grid-template-columns: repeat(auto-fit, minmax(130px, 1fr))

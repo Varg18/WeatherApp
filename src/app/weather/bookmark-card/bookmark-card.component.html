@@ -1,0 +1,24 @@
+<div class="bg-cards w-64 mx-auto rounded-md p-6 flex flex-col items-center">
+	<div class="flex items-center">
+		<p class="text-white text-center capitalize text-sm">{{ getCityName() }}</p>
+	</div>
+	<div class="h-32 flex items-center">
+		<div class="mt-4 flex justify-center items-center">
+			<span class="text-white text-4xl font-semibold"
+				>{{ getWeatherTemp() }}&deg;</span
+			>
+			<div class="ml-8">
+				<fa-icon class="text-white" transform="grow-35" [icon]="getIcon()" />
+			</div>
+		</div>
+	</div>
+	<div class="text-white">
+		<p>{{ getWeatherDesk() }}</p>
+	</div>
+	<div class="text-white">
+		<p>{{ getWeatherPressure() }} мм рт.ст.</p>
+	</div>
+	<div class="text-white">
+		<p>Закат в {{ getWeatherSunsetTime() }}</p>
+	</div>
+</div>

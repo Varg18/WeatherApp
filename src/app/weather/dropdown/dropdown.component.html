@@ -1,0 +1,27 @@
+<form [formGroup]="stateForm" novalidate class="w-full mt-10">
+	<input
+		id="search"
+		#city
+		class="w-80 h-11 p-3 relative bg-surface placeholder-text text-white rounded-sm"
+		type="text"
+		placeholder="Введите город"
+		(click)="toggleDropDown()"
+		formControlName="search"
+	/>
+</form>
+
+<div
+	clickOutside
+	(clickOutside)="toggleDropDown()"
+	*ngIf="showDropDown"
+	class="mt-1 rounded-sm absolute w-[320px] max-h-[300px] bg-surface text-white overflow-y-auto"
+>
+	<div
+		(click)="selectCity(c); cityItem(city.value); clear()"
+		class="p-4 hover:text-text"
+		*ngFor="let c of cities | searchFilter : getSearchCity()"
+	>
+		<p>{{ c.city }}</p>
+	</div>
+</div>
+<!--<button (click)="cityItem(city.value)">Get Weather</button>-->
